@@ -1,0 +1,52 @@
+# use Ganache's forked mainnet mode as the default network
+networks:
+  default: mainnet-fork
+
+# automatically fetch contract sources from Etherscan
+autofetch_sources: True
+
+# require OpenZepplin Contracts v4.1.0
+dependencies:
+  - OpenZeppelin/openzeppelin-contracts@4.1.0
+
+# path remapping to support OpenZepplin imports with NPM-style path
+compiler:
+  solc:
+    optimizer:
+        enabled: true
+        runs: 200
+    remappings:
+      - "@openzeppelin=OpenZeppelin/openzeppelin-contracts@4.1.0"
+networks:
+  default: mainnet-fork
+  polygon:
+    router: "0x11111112542D85B3EF69AE05771c2dCCff4fAa26"
+    tokenIn: "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+    tokenOut: "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270"
+    amount: 1000000000000000000 # 1
+    slippage: 2
+    chain_id: 137
+  polygon-fork:
+    router: "0x11111112542D85B3EF69AE05771c2dCCff4fAa26"
+    tokenIn: "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+    tokenOut: "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270"
+    amount: 1000000000000000000
+    slippage: 2
+    chain_id: 137
+  polygon-infura-fork:
+    router: "0x11111112542D85B3EF69AE05771c2dCCff4fAa26"
+    tokenIn: "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+    tokenOut: "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270"
+    amount: 1000000000000000000
+    slippage: 2
+    chain_id: 137
+  polygon-mumbai:
+    router: "0x11111112542D85B3EF69AE05771c2dCCff4fAa26"
+    tokenIn: "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+    tokenOut: "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270"
+    amount: 1000000000000000000
+    slippage: 2
+    chain_id: 80001
+wallets:
+  from_key: '0x85D6EceC4F3cD8AE8DF22dcE8437085B4C2A1E4a'
+  # from_key: ${PRIVATE_KEY}
